@@ -2,40 +2,25 @@
 <jsp:useBean id="trabajo" scope="request" type="com.example.webapphr1_2023.Beans.Job" />
 <!DOCTYPE html>
 <html>
-    <head>
-        <jsp:include page="../includes/bootstrap_header.jsp" />
-        <title>Editar una Locacion</title>
-    </head>
-    <body>
-        <div class='container'>
-            <h1 class='mb-3'>Editar una locacion</h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<%= request.getContextPath()%>">Home</a></li>
-                    <li class="breadcrumb-item active">Trabajos</li>
-                </ol>
-            </nav>
+<head>
+    <jsp:include page="../includes/bootstrap_header.jsp"/>
+    <title>Editar Location</title>
+</head>
+<body>
+<div class='container'>
 
-            <form method="POST" action="<%=request.getContextPath()%>/LocationServlet?action=crear" class="col-md-6 col-lg-6">
-                <input type="hidden" class="form-control" name="jobId" value="<%=trabajo.getJobId()%>">
-                <div class="mb-3">
-                    <label for="jobTitle">Job Title</label>
-                    <input type="text" class="form-control" id="jobTitle" name="jobTitle" value="<%=trabajo.getJobTitle()%>">
-                </div>
-                <div class="mb-3">
-                    <label for="minSalary">Min Salary</label>
-                    <input type="text" class="form-control" id="minSalary" name="minSalary" value="<%=trabajo.getMinSalary()%>">
-                </div>
-                <div class="mb-3">
-                    <label for="maxSalary">Max Salary</label>
-                    <input type="text" class="form-control" id="maxSalary" name="maxSalary" value="<%=trabajo.getMaxSalary()%>">
-                </div>
-                <a href="<%=request.getContextPath()%>/JobServlet" class="btn btn-danger">Regresar</a>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-        <jsp:include page="../includes/bootstrap_footer.jsp" />
-    </body>
+    <h1 class='mb-3'>Editar Location</h1>
+    <form action="<%=request.getContextPath()%>/LocationServlet" method="POST">
+        <input type="hidden" name="action" value="guardarEdicion">
+        <input type="hidden" name="locationId" value="<%=location.getLocationId()%>">
+        <label for="streetAddress">Street Address:</label>
+        <input type="text" id="streetAddress" name="streetAddress" value="<%=location.getStreetAddress()%>" required>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+    <a href="<%=request.getContextPath()%>/LocationServlet?action=listar" class="btn btn-secondary mt-3">Volver a la lista</a>
+</div>
+<jsp:include page="../includes/bootstrap_footer.jsp"/>
+</body>
 </html>
 
 
