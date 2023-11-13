@@ -38,7 +38,7 @@ public class LocationServlet extends HttpServlet {
             case "editar":
                 if (req.getParameter("id") != null) {
                     int locationId = Integer.parseInt(req.getParameter("id"));
-                    Location location = locationdao.obtenerLocation(locationId);
+                    Location location = LocationDao.listarLocation(locationId);
 
                     if (location != null) {
                         // Lógica para cargar datos necesarios si es necesario
