@@ -19,6 +19,8 @@ public class DepartmentDao extends DaoBase {
                 Department department = new Department();
                 department.setDepartmentId(rs.getInt(1));
                 department.setDepartmentName(rs.getString(2));
+                department.setManagerId(rs.getInt(3));
+                department.setLocationId(rs.getInt(4));
                 list.add(department);
             }
 
