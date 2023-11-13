@@ -16,13 +16,9 @@
 
     <form action="<%=request.getContextPath()%>/LocationServlet" method="POST">
         <input type="hidden" name="action" value="guardarNueva">
-
-        <!-- Aquí deberías tener campos de formulario para crear una nueva Location, por ejemplo: -->
         <label for="streetAddress">Street Address:</label>
         <input type="text" id="streetAddress" name="streetAddress" required>
-
-        <!-- Otros campos de formulario -->
-
+        
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 

@@ -1,5 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="trabajo" scope="request" type="com.example.webapphr1_2023.Beans.Job" />
+<%@ page import="com.example.webapphr1_2023.Beans.Location" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="location" scope="request" type="com.example.webapphr1_2023.Beans.Location" />
 <!DOCTYPE html>
 <html>
 <head>

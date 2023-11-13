@@ -54,7 +54,7 @@ public class LocationDao extends DaoBase {
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)){
 
-            stmt.setString(1, String.valueOf(locationId));
+            stmt.setInt(1, locationId);
 
             try (ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -75,7 +75,7 @@ public class LocationDao extends DaoBase {
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+           e.printStackTrace();
         }
 
         return loc;
