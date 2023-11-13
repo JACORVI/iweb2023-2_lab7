@@ -35,24 +35,23 @@ public class LocationServlet extends HttpServlet {
                 view.forward(req, resp);
                 break;
 
-            //case "editar":
-            //    if (req.getParameter("id") != null) {
-            //        int locationId = Integer.parseInt(req.getParameter("id"));
-            //        Location location = LocationDao.listarLocation(locationId);
-//
-  //                  if (location != null) {
-    //                    // Lógica para cargar datos necesarios si es necesario
-      //                  // Por ejemplo, listas de países, regiones, etc.
-        //                req.setAttribute("location", location);
-          //7              view = req.getRequestDispatcher("location/editarLocation.jsp");
-             //           view.forward(req, resp);
-               //     } else {
-                 //       resp.sendRedirect("LocationServlet?action=listar");
-                  //  }
-                //} else {
-                //    resp.sendRedirect("LocationServlet?action=listar");
-                //}
-                //break;
+            case "editar":
+                if (req.getParameter("id") != null) {
+                    int locationId = Integer.parseInt(req.getParameter("id"));
+                    Location location = LocationDao.obtenerLocation(locationId);
+
+                    if (location != null) {
+
+                        req.setAttribute("location", location);
+                        view = req.getRequestDispatcher("location/editarLocation.jsp");
+                        view.forward(req, resp);
+                    } else {
+                        resp.sendRedirect("LocationServlet?action=listar");
+                    }
+                } else {
+                    resp.sendRedirect("LocationServlet?action=listar");
+                }
+                break;
 
         }
         //req.setAttribute("locationList", new ArrayList<>());

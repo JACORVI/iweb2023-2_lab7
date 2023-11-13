@@ -46,7 +46,7 @@ public class LocationDao extends DaoBase {
         return listaLocation;
     }
 
-    public Location obtenerLocation(int locationId) {
+    public static Location obtenerLocation(int locationId) {
         Location loc = new Location();
 
         String sql = "SELECT * FROM locations loc LEFT JOIN countries c ON loc.country_id = c.country_id WHERE location_id = ?;";
